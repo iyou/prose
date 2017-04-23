@@ -218,6 +218,7 @@ module.exports = Backbone.Router.extend({
           router: this,
           sidebar: this.app.sidebar
         });
+
         this.view = content;
         this.app.$el.find('#main').html(this.view.render().el);
       }).bind(this),
@@ -230,6 +231,7 @@ module.exports = Backbone.Router.extend({
 
   path: function(login, repoName, path) {
     var url = util.extractURL(path);
+
     switch(url.mode) {
       case 'tree':
         this.repo(login, repoName, url.branch, url.path);
@@ -370,7 +372,6 @@ module.exports = Backbone.Router.extend({
       this.view = new StartView();
       this.app.$el.find('#main').html(this.view.render().el);
     }
-
   },
 
   notify: function(message, error, options) {
