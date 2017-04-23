@@ -120,6 +120,12 @@ module.exports = Backbone.Router.extend({
   // #example-user
   // #example-organization
   profile: function(login) {
+
+    router.navigate('#knotel/knotel-docs/tree/master/webapp/pages', {
+      trigger: true,
+      replace: true
+    });
+
     if (this.view) this.view.remove();
 
     this.app.loader.start(t('loading.repos'));
