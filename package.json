@@ -59,7 +59,7 @@
     "test-ci": "gulp test-ci",
     "start": "gulp watch & serve",
     "build": "gulp clean; gulp production",
-    "deploy": "gh-pages -d site -m \"$COMMIT_MESSAGE\""
+    "deploy": "npm run build && gh-pages -d site -m \"$COMMIT_MESSAGE\""
   },
   "browserify": {
     "transform": [
