@@ -2406,7 +2406,7 @@ a:hover .popup {
 
 .cm-fat-cursor .CodeMirror-cursor {
   width: auto;
-  border: 0;
+  border: 0 !important;
   background: #7e7; }
 
 .cm-fat-cursor div.CodeMirror-cursors {
@@ -2443,8 +2443,18 @@ a:hover .popup {
   display: inline-block;
   text-decoration: inherit; }
 
+.CodeMirror-rulers {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -50px;
+  bottom: -20px;
+  overflow: hidden; }
+
 .CodeMirror-ruler {
   border-left: 1px solid #ccc;
+  top: 0;
+  bottom: 0;
   position: absolute; }
 
 /* DEFAULT THEME */
@@ -2610,10 +2620,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   height: 100%;
   display: inline-block;
   vertical-align: top;
-  margin-bottom: -30px;
-  /* Hack to make IE7 behave */
-  *zoom: 1;
-  *display: inline; }
+  margin-bottom: -30px; }
 
 .CodeMirror-gutter-wrapper {
   position: absolute;
@@ -2632,10 +2639,11 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   cursor: default;
   z-index: 4; }
 
-.CodeMirror-gutter-wrapper {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none; }
+.CodeMirror-gutter-wrapper ::selection {
+  background-color: transparent; }
+
+.CodeMirror-gutter-wrapper ::-moz-selection {
+  background-color: transparent; }
 
 .CodeMirror-lines {
   cursor: text;
@@ -2660,8 +2668,8 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   position: relative;
   overflow: visible;
   -webkit-tap-highlight-color: transparent;
-  -webkit-font-variant-ligatures: none;
-  font-variant-ligatures: none; }
+  -webkit-font-variant-ligatures: contextual;
+  font-variant-ligatures: contextual; }
 
 .CodeMirror-wrap pre {
   word-wrap: break-word;
@@ -2680,6 +2688,9 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   position: relative;
   z-index: 2;
   overflow: auto; }
+
+.CodeMirror-rtl pre {
+  direction: rtl; }
 
 .CodeMirror-code {
   outline: none; }
@@ -2701,7 +2712,8 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
   visibility: hidden; }
 
 .CodeMirror-cursor {
-  position: absolute; }
+  position: absolute;
+  pointer-events: none; }
 
 .CodeMirror-measure pre {
   position: static; }
@@ -2735,10 +2747,6 @@ div.CodeMirror-dragcursors {
 .cm-searching {
   background: #ffa;
   background: rgba(255, 255, 0, 0.4); }
-
-/* IE7 hack to prevent it from returning funny offsetTops on the spans */
-.CodeMirror span {
-  *vertical-align: text-bottom; }
 
 /* Used to force a border model for a node */
 .cm-force-border {
