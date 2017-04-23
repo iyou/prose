@@ -31,6 +31,7 @@
     "chai": "^1.9.2",
     "del": "^1.1.1",
     "function-bind": "~0.1.0",
+    "gh-pages": "^0.12.0",
     "glob": "~3.1.21",
     "gulp": "^3.8.2",
     "gulp-concat": "^2.2.0",
@@ -57,7 +58,8 @@
     "test": "gulp test",
     "test-ci": "gulp test-ci",
     "start": "gulp watch & serve",
-    "build": "gulp clean; gulp production"
+    "build": "gulp clean; gulp production",
+    "deploy": "gh-pages -d site -m \"$COMMIT_MESSAGE\""
   },
   "browserify": {
     "transform": [
