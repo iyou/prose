@@ -27,6 +27,9 @@ var cookie = require('./cookie');
 
 // Set scope
 auth.scope = cookie.get('scope') || 'repo';
+let organizationName = 'knotel';
+let repoName = 'prose';
+let pathName = 'tree/card745/webapp/pages/docs';
 
 // Find the proper repo.
 // Handles users with access to a repo *and* it's fork,
@@ -215,7 +218,6 @@ module.exports = Backbone.Router.extend({
           router: this,
           sidebar: this.app.sidebar
         });
-
         this.view = content;
         this.app.$el.find('#main').html(this.view.render().el);
       }).bind(this),
@@ -228,7 +230,6 @@ module.exports = Backbone.Router.extend({
 
   path: function(login, repoName, path) {
     var url = util.extractURL(path);
-
     switch(url.mode) {
       case 'tree':
         this.repo(login, repoName, url.branch, url.path);
@@ -350,8 +351,14 @@ module.exports = Backbone.Router.extend({
   },
 
   start: function() {
-    if (this.view) this.view.remove();
-
+    if (this.view) {
+      this.view.remove();
+    } else {
+      this.path(organizationName, repoName, pathName);
+      let navigationPath  = organizationName+'/'+repoName+'/'+pathName;
+      router.navigate(navigationPath)
+      return;
+    }
     // If user has authenticated
     if (this.user) {
       router.navigate(this.user.get('login'), {
@@ -363,6 +370,7 @@ module.exports = Backbone.Router.extend({
       this.view = new StartView();
       this.app.$el.find('#main').html(this.view.render().el);
     }
+
   },
 
   notify: function(message, error, options) {
