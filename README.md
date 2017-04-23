@@ -1,4 +1,4 @@
-## Prose [![Build Status](https://travis-ci.org/prose/prose.svg?branch=master)](https://travis-ci.org/prose/prose)
+## Prose-Knotel [![Build Status](https://circleci.com/gh/knotel/prose.png?circle-token=c709149ea4853e3ca0372c7293735fd3d0d697ff)](https://circleci.com/gh/knotel/prose)  
 
 Prose provides a beautifully simple content authoring environment for [CMS-free websites](http://developmentseed.org/blog/2012/07/27/build-cms-free-websites/). It's a web-based interface for managing content on [GitHub](http://github.com). Use it to create, edit, and delete files, and save your changes directly to GitHub. Host your website on [GitHub Pages](http://pages.github.com) for free, or set up your own [GitHub webhook server](http://developmentseed.org/blog/2013/05/01/introducing-jekyll-hook/).
 
