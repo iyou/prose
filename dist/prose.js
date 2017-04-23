@@ -2961,9 +2961,9 @@ module.exports = Backbone.Router.extend({
   profile: function(login) {
 
     router.navigate('#knotel/knotel-docs/tree/master/webapp/pages', {
-      trigger: true,
-      replace: true
+      trigger: true
     });
+    return;
 
     if (this.view) this.view.remove();
 
