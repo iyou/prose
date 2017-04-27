@@ -8,3 +8,4 @@ prose:
     - "*.js"
     - "*.jsx"
     - "*.json"
+    - "*.eot"
