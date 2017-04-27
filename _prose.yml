@@ -5,6 +5,6 @@ prose:
     - /circle.yml
     - /scripts
     - .build_scripts
-    - *.js
-    - *.jsx
-    - *.json
+    - "*.js"
+    - "*.jsx"
+    - "*.json"
