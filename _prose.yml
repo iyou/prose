@@ -1,0 +1,10 @@
+prose:
+  ignore:
+    - /\..*
+    - /_prose.yml
+    - /circle.yml
+    - /scripts
+    - .build_scripts
+    - *.js
+    - *.jsx
+    - *.json
